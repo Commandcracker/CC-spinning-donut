@@ -1,19 +1,19 @@
-local a, F, s, z, b
+local a,F,z,b,M,X,H,K
+M=math
+X=M.floor
+H=M.cos
+K=M.sin
 a = 0
 F = 0
-
-s = {'.',',','-','~',':',';','=','!','*','#','$','@'}
+z = {}
+b = {}
 
 -- clear screen before starting
 term.clear()
 
-z = {}
-b = {}
-
-
 while 1 do
     -- Too long without yielding Fix
-    os.queueEvent("")
+    os.queueEvent('')
     os.pullEvent()
     local i,j
     j=0
@@ -32,29 +32,29 @@ while 1 do
             i=i+0.02
 
             local c,d,e,f,g,h,D,l,m,n,t,x,y,o,N
-            c = math.sin(i)
-            l = math.cos(i)
-            d = math.cos(j)
-            f = math.sin(j)
+            c = K(i)
+            l = H(i)
+            d = H(j)
+            f = K(j)
 
-            e = math.sin(a)
-            g = math.cos(a)
+            e = K(a)
+            g = H(a)
             h = d + 2
             D = 1 / (c * h * e + f * g + 5)
 
-            m = math.cos(F)
-            n = math.sin(F)
+            m = H(F)
+            n = K(F)
             t = c * h * g - f * e
 
-            x = math.floor(40 + 30 * D * (l * h * m - t * n))
-            y = math.floor(12 + 15 * D * (l * h * n + t * m))
-            o = math.floor(x + (80 * y))
-            N = math.floor(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n))
+            x = X(40 + 30 * D * (l * h * m - t * n))
+            y = X(12 + 15 * D * (l * h * n + t * m))
+            o = X(x + (80 * y))
+            N = X(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n))
 
             if 22>y and y>0 and 80>x and x>0 and D>z[o+1] then
                 z[o+1] = D
                 if N>0 then
-                    b[o+1] = s[N+1]
+                    b[o+1] = ({'.',',','-','~',':',';','=','!','*','#','$','@'})[N+1]
                 else
                     b[o+1] = '.'
                 end
@@ -63,10 +63,10 @@ while 1 do
     end
 
     -- print
-	shell.run("cls")
+	shell.run("clear")
     for l=1,1760 do
         if l%80 ~= 0 then
-            io.write(tostring(b[l]))
+            io.write(b[l])
         else
             print()
         end
