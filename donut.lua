@@ -1,22 +1,25 @@
-             local a,b,c,d,e;
-         a=0;b=0;c={'.',',','-',
-       '~',':',';','=','!','*','#',
-     '$','@'}term.clear()d={}e={}while
-  1 do os.queueEvent('')os.pullEvent()local
-  f,g;g=0;for h=1,1760 do d[h]=0 end;for i=1
- ,1760 do e[i]=' 'end;while g<6.28 do g=g+0.07
- ;f=0;while f<6.28 do f=f+0.02;local j,k,l,m,n
- ,o,p,h,q,r,i,s,t,u       ,v;j=math.sin(f)h=math.
-cos(f)k=math.cos(g)         m=math.sin(g)l=math.
-sin(a)n=math.cos(a           )o=k+2;p=1/(j*o*l+m*
-n+5)q=math.cos(b)r          =math.sin(b)i=j*o*n-m*l;
- s=math.floor(40+30        *p*(h*o*q-i*r))t=math.
- floor(12+15*p*(h*o*r+i*q))u=math.floor(s+80*t)
- v=math.floor(8*((m*l-j*k*n)*q-j*k*l-m*n-h*k*r))
-  if 22>t and t>0 and 80>s and s>0 and p>d[u+1]
-  then d[u+1]=p;if v>0 then e[u+1]=c[v+1]else
-     e[u+1]='.'end end end end;shell.run(
-     "clear")for h=1,1760 do if h%80~=0
-       then io.write(tostring(e[h]))
-         else print()end end;a=a+
-             0.04;b=b+0.02 end
+             local a,b,c,d,
+         e,f,g,h;e=math;f=e.floor
+     ;g=e.cos;h=e.sin;a=0;b=0;
+  c={}d={}term.clear()while 1 do
+  os.queueEvent('')os.pullEvent()local
+ i,j;j=0;for k=1,1760 do c[k]=0 end;
+ for l=1,1760 do d[l]=' 'end;while j<
+ 6.28 do j=j+0.07;i=0;while i<6.28 do i
+=i+0.02;local m,      n,o,p,q,r,s,k,t,
+u,l,v,w,x,y;m=h(        i)k=g(i)n=g(j)p=
+h(j)o=h(a)q=g(            a)r=n+2;s=1/(m
+*r*o+p*q+5)t=g(          b)u=h(b)l=m*r*q
+ -p*o;v=f(40+30*        s*(k*r*t-l*u))w
+ =f(12+15*s*(k*r*u+l*t))x=f(v+80*w)y=f(
+ 8*((p*o-m*n*q)*t-m*n*o-p*q-k*n*u))if
+  22>w and w>0 and 80>v and v>0 and s>
+   c[x+1]then c[x+1]=s;if y>0 then d
+     [x+1]=({'.',',','-','~',':',
+       ';','=','!','*','#','$','@'
+         })[y+1]else d[x+1]='.'
+             end end end end
+
+;shell.run("clear")for k=1,1760 do
+	if k%80~=0 then io.write(d[k])
+else print()end end;a=a+0.04;b=b+0.02 end
