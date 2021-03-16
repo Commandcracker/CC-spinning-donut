@@ -15,11 +15,10 @@ h(j)o=h(a)q=g(            a)r=n+2;s=1/(m
  8*((p*o-m*n*q)*t-m*n*o-p*q-k*n*u))if
   22>w and w>0 and 80>v and v>0 and s>
    c[x+1]then c[x+1]=s;if y>0 then d
-     [x+1]=({'.',',','-','~',':',
-       ';','=','!','*','#','$','@'
-         })[y+1]else d[x+1]='.'
-             end end end end
+    [x+1]=string.sub(".,-~:;=!*#$@"
+      ,y+1,y+1)else d[x+1]='.'end
+        end end end;shell.run(
+         "clear")for k=1,1760
 
-;shell.run("clear")for k=1,1760 do
-	if k%80~=0 then io.write(d[k])
-else print()end end;a=a+0.04;b=b+0.02 end
+do if k%80~=0 then io.write(d[k])else
+print()end end;a=a+0.04;b=b+0.02 end

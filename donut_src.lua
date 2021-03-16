@@ -54,7 +54,7 @@ while 1 do
             if 22>y and y>0 and 80>x and x>0 and D>z[o+1] then
                 z[o+1] = D
                 if N>0 then
-                    b[o+1] = ({'.',',','-','~',':',';','=','!','*','#','$','@'})[N+1]
+                    b[o+1] = string.sub(".,-~:;=!*#$@",N+1,N+1)
                 else
                     b[o+1] = '.'
                 end
